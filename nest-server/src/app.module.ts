@@ -3,14 +3,17 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { GraphQLModule } from '@nestjs/graphql';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://database/mest-docker'),
+    MongooseModule.forRoot('mongodb://database/mest-docker'),
     GraphQLModule.forRoot({
-      debug: false,
-      playground: false,
+      autoSchemaFile: 'schema.gql',
+      playground: true,
+      debug: true,
     }),
+    VehicleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
