@@ -1,7 +1,9 @@
-import { InputType, Field, Int, ID } from 'type-graphql';
+import { ObjectType, Field, Int, ID } from 'type-graphql';
 
-@InputType()
-export class VehicleInput {
+@ObjectType()
+export class CreateVehicleDto {
+  @Field(() => ID)
+  id: string;
   @Field()
   readonly brand: string;
   @Field()

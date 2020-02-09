@@ -21,4 +21,15 @@ export class VehicleResolver {
   async createVehicle(@Args('input') input: VehicleInput) {
     return this.vehicleService.create(input);
   }
+
+  @Mutation(() => CreateVehicleDto)
+  async updateVehicle(@Args('input') id: string, data: VehicleInput) {
+    return await this.vehicleService.update(id, data);
+  }
+
+  @Mutation(() => String)
+  async deleteVehicle(@Args('id') id: string) {
+    await this.vehicleService.delete(id);
+    return 'Delete Vehicle';
+  }
 }

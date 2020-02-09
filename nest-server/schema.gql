@@ -14,6 +14,8 @@ type CreateVehicleDto {
 
 type Mutation {
   createVehicle(input: VehicleInput!): CreateVehicleDto!
+  updateVehicle(input: String!): CreateVehicleDto!
+  deleteVehicle(id: String!): String!
 }
 
 type Query {

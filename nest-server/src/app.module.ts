@@ -7,7 +7,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://database/mest-docker'),
+    MongooseModule.forRoot('mongodb://localhost:27017/mest-docker'),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       playground: true,
