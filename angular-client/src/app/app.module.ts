@@ -11,13 +11,9 @@ import { VehiclesComponent } from "./vehicles/vehicles.component";
 import { LaptopsComponent } from "./laptops/laptops.component";
 import { ApartmentsComponent } from "./apartments/apartments.component";
 
-import {
-  MatTableModule,
-  MatHeaderCell,
-  MatCell,
-  MatColumnDef
-} from "@angular/material/table";
-
+import { MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +28,9 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     GraphQLModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

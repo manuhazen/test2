@@ -1,3 +1,11 @@
 table {
-  width: 100%;
+  width: calc(100%);
+  margin: 0 auto;
+}
+
+.lastestProducts {
+  &__container {
+    width: calc(100% - 24px);
+    margin: 0 auto;
+  }
 }

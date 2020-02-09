@@ -18,7 +18,8 @@ import { getProducts } from "../../queries/products";
 })
 export class ProductsComponent implements OnInit {
   private querySubscription: Subscription;
-  products: any;
+  products: object[];
+  displayedColumns: string[] = ["id", "type"];
 
   constructor(private apollo: Apollo) {}
 
