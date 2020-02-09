@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Vehicle } from './interfaces/vehicle.interface';
 import { VehicleInput } from './inputs/vehicle.input';
+import { UpdateVehicleInput } from './inputs/update-vehicle.input';
 
 @Injectable()
 export class VehicleService {
@@ -15,8 +16,8 @@ export class VehicleService {
     return createdVehicle.save();
   }
 
-  async update(id: string, data: VehicleInput): Promise<Vehicle> {
-    await this.vehicleModel.update({ _id: id }, data);
+  async update(id: string, data: UpdateVehicleInput): Promise<Vehicle> {
+    await this.vehicleModel.updateOne({ _id: id }, data);
     return this.vehicleModel.findOne({ _id: id });
   }
 

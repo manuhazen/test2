@@ -8,16 +8,6 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppComponent {
   title = "angular-client";
-  API = "http://localhost:3000";
   constructor(private Http: HttpClient) {}
-  ngOnInit() {
-    this.hittingApi();
-    console.log("klk contigo panita da baby");
-  }
-
-  hittingApi() {
-    this.Http.get(`${this.API}/`).subscribe((response: any) => {
-      console.log(response);
-    });
-  }
+  ngOnInit() {}
 }

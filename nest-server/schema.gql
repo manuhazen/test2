@@ -3,6 +3,37 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input ApartmentInput {
+  type: String!
+  size: Int!
+  rooms: Float!
+  island: Boolean!
+  balcony: Boolean!
+  bathrooms: Float!
+}
+
+type CreateApartmentDto {
+  id: ID!
+  type: String!
+  island: Boolean!
+  size: Int!
+  balcony: Boolean!
+  bathrooms: Float!
+  rooms: Float!
+}
+
+type CreateLaptopDto {
+  id: ID!
+  gpu: String!
+  cpu: String!
+  ram: String!
+  ramType: String!
+  size: String!
+  brand: String!
+  model: String!
+  year: Int!
+}
+
 type CreateVehicleDto {
   id: ID!
   brand: String!
@@ -12,15 +43,47 @@ type CreateVehicleDto {
   milleage: Int!
 }
 
+input LaptopInput {
+  gpu: String!
+  cpu: String!
+  ram: String!
+  ramType: String!
+  size: String!
+  brand: String!
+  model: String!
+  year: Int!
+}
+
 type Mutation {
   createVehicle(input: VehicleInput!): CreateVehicleDto!
   updateVehicle(input: String!): CreateVehicleDto!
   deleteVehicle(id: String!): String!
+  createApartment(input: ApartmentInput!): CreateApartmentDto!
+  updateApartment(input: String!): CreateApartmentDto!
+  deleteApartment(id: String!): String!
+  createLaptop(input: LaptopInput!): CreateLaptopDto!
+  updateLaptop(input: UpdateLaptopInput!, id: String!): CreateLaptopDto!
+  deleteLaptop(id: String!): String!
 }
 
 type Query {
   author: String!
   vehicles: [CreateVehicleDto!]!
+  apartmentsTest: String!
+  apartments: [CreateApartmentDto!]!
+  laptopsTest: String!
+  laptops: [CreateLaptopDto!]!
+}
+
+input UpdateLaptopInput {
+  gpu: String
+  cpu: String
+  ram: String
+  ramType: String
+  size: String
+  brand: String
+  model: String
+  year: Float
 }
 
 input VehicleInput {
