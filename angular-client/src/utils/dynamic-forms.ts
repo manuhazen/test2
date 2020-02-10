@@ -19,14 +19,14 @@ async function getSchema(graphQLUrl: string) {
   return schema;
 }
 
-async function createForms() {
+export async function createDynamicForms() {
   const schema = await getSchema("http://localhost:3000/graphql");
   const rootQueryType = schema.getQueryType();
   const fields = rootQueryType?.getFields();
   const forms = Object.keys(fields).map(fieldName => {
     const field = fields[fieldName];
     const args = field.args;
-    const inputs = args.reduce<JSX.Element[]>((acc, arg) => {
+    const inputs = args.reduce<any>((acc, arg) => {
       const nullableType = getNullableType(arg.type);
       if (isScalarType(nullableType)) {
         const isRequired = isNonNullType(arg.type);
@@ -39,7 +39,7 @@ async function createForms() {
             ? "number"
             : null;
         if (inputType) {
-          return [...acc, <input type={inputType} required={isRequired} />];
+          // return [...acc, <input type={inputType} required={isRequired} />];
         }
       }
       return acc;
